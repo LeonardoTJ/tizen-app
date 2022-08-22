@@ -69,3 +69,8 @@ body {
 .button input:hover {
   background-color: #265df2;
 }
+
+/* Style for focused elements */
+:focus {
+  outline: 2px solid blue;
+}
