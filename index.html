@@ -20,7 +20,7 @@
             <div class="input-field">
               <input
                 id="email-field"
-                class="input default-element"
+                class="main-btn"
                 type="text"
                 placeholder="Enter your email"
                 required
@@ -30,7 +30,7 @@
             <div class="input-field">
               <input
                 id="password-field"
-                class="input"
+                class="main-btn"
                 type="password"
                 placeholder="Enter your password"
                 required
@@ -38,11 +38,28 @@
               <span class="error-message"></span>
             </div>
             <div class="input-field button">
-              <input type="submit" value="Login now" />
+              <input class="main-btn" type="submit" value="Login now" />
             </div>
           </form>
         </div>
       </div>
     </div>
+    <section class="modal">
+      <div class="modal-container">
+        <h3>Exit application?</h3>
+        <input
+          class="modal-btn modal_exit"
+          type="button"
+          value="OK"
+          onclick="exitApp();"
+        />
+        <input
+          class="modal-btn modal_cancel"
+          type="button"
+          value="Cancel"
+          onclick="toggleModal();"
+        />
+      </div>
+    </section>
   </body>
 </html>

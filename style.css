@@ -14,7 +14,6 @@ body {
 }
 
 .container {
-  /* position: relative; */
   max-width: 400px;
   width: 100%;
   background-color: white;
@@ -25,7 +24,6 @@ body {
 }
 
 .container .form .title {
-  /* position: relative; */
   font-size: 30px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -33,13 +31,11 @@ body {
 
 .form .input-field {
   margin: 20px auto;
-  /* position: relative; */
   height: 30px;
   width: 100%;
 }
 
 .input-field input {
-  /* position: absolute; */
   height: 100%;
   width: 100%;
   padding: 0 15px;
@@ -73,4 +69,34 @@ body {
 /* Style for focused elements */
 :focus {
   outline: 2px solid blue;
+}
+
+/* Confirm exit popup */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-show {
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.modal-container {
+  margin: auto;
+  width: 30%;
+  border-radius: 8px;
+  padding: 3em 2.5em;
+  background-color: white;
+  display: grid;
+  gap: 1em;
+  place-items: center;
+  grid-auto-columns: 100%;
 }
