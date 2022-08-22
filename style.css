@@ -51,7 +51,8 @@ body {
   border: 1px solid red;
 }
 
-.form .button input {
+.form .button input,
+.modal .modal-btn {
   border: none;
   background-color: #4070f4;
   color: white;

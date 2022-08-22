@@ -4,11 +4,9 @@ function handleKeys(event) {
   switch (key) {
     case UP_ARROW_BUTTON:
       console.log(`[key] ${key} - arriba`);
-      //navigate(KEY_UP);
       break;
     case DOWN_ARROW_BUTTON:
       console.log(`[key] ${key} - abajo`);
-      //navigate(KEY_DOWN);
       break;
     case RETURN_BUTTON:
       console.log(`[key] ${key} - atras`);
@@ -50,8 +48,6 @@ function toggleModal() {
 }
 
 function toggleFocusableButtons() {
-  // mainFields.forEach(field => field.classList.toggle('focusable'));
-  // modalFields.forEach(field => field.classList.toggle('focusable'));
   if (!exitMenuActive) {
     SpatialNavigation.disable('main');
     SpatialNavigation.enable('modal');
