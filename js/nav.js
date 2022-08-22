@@ -25,8 +25,7 @@ function initNavigation() {
   SpatialNavigation.init();
   SpatialNavigation.add('main', {
     selector: '#login-form input',
-    enterTo: 'last-focused',
-    defaultElement: '#email-field',
+    // defaultElement: '#email-field',
     rememberSource: true
   });
   SpatialNavigation.add('modal', {
@@ -36,7 +35,7 @@ function initNavigation() {
     rememberSource: true
   });
   SpatialNavigation.makeFocusable();
-  SpatialNavigation.focus();
+  // SpatialNavigation.focus();
 
   document.addEventListener('keydown', handleKeys);
 }

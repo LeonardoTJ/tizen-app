@@ -15,7 +15,7 @@
     <div class="container">
       <div class="forms">
         <div class="form login">
-          <span class="title">Login</span>
+          <span id="title" class="title" role="heading">Login</span>
           <form id="login-form" action="/dashboard.html">
             <div class="input-field">
               <input
@@ -23,9 +23,14 @@
                 class="main-btn"
                 type="text"
                 placeholder="Enter your email"
+                role="textbox"
+                aria-label="Email field"
+                aria-labelledby="title"
+                aria-
+                aria-required="true"
                 required
               />
-              <span class="error-message"></span>
+              <span class="error-message" aria-live="assertive"></span>
             </div>
             <div class="input-field">
               <input
@@ -33,12 +38,22 @@
                 class="main-btn"
                 type="password"
                 placeholder="Enter your password"
+                role="textbox"
+                aria-label="Password field"
+                aria-labelledby="title"
+                aria-required="true"
                 required
               />
-              <span class="error-message"></span>
+              <span class="error-message" aria-live="assertive"></span>
             </div>
             <div class="input-field button">
-              <input class="main-btn" type="submit" value="Login now" />
+              <input
+                class="main-btn"
+                type="submit"
+                value="Login now"
+                role="button"
+                aria-labelledby="title"
+              />
             </div>
           </form>
         </div>
@@ -46,17 +61,23 @@
     </div>
     <section class="modal">
       <div class="modal-container input-field">
-        <h3>Exit application?</h3>
+        <h3 id="modal-title" role="heading">Exit application?</h3>
         <input
           class="modal-btn modal_exit"
           type="button"
           value="OK"
+          role="button"
+          aria-label="Exit"
+          aria-labelledby="modal-title"
           onclick="exitApp();"
         />
         <input
           class="modal-btn modal_cancel"
           type="button"
           value="Cancel"
+          role="button"
+          aria-label="Cancel"
+          aria-labelledby="modal-title"
           onclick="toggleModal();"
         />
       </div>
