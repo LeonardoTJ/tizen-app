@@ -1,2 +1,4 @@
 .vscode/
+dist/
 tizen_web_project.yaml
+node_modules
