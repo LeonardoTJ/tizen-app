@@ -1,7 +1,7 @@
 import { router } from './router/index.router.js';
 import auth from './auth.js';
 import nav from './nav.js';
-import '../style.css';
+import '../style/main.css';
 
 auth();
 nav.initNavigation();

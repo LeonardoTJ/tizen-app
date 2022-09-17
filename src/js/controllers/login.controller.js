@@ -1,6 +1,7 @@
 // import { container } from 'webpack';
 import loginView from '../../views/login.html';
 import nav from '../nav.js';
+import '../../style/login.css';
 
 export default () => {
   const containerDiv = document.createElement('div');
