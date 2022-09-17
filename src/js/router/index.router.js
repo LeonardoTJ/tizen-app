@@ -15,7 +15,7 @@ const router = async (route) => {
     case 'dashboard':
       return container.appendChild(pages.dashboard());
     default:
-      container.innerHTML = '<h1>404 not found</h1>';
+      return container.appendChild(pages.notFound());
   }
 }
 
