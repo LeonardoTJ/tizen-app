@@ -17,5 +17,15 @@ export default () => {
 
   nav.makeFocusable();
 
+  const playerBtn = containerDiv.querySelector('#player-btn');
+  playerBtn.addEventListener('click', () => {
+    window.location.replace('#player');
+  });
+
+  const galleryBtn = containerDiv.querySelector('#gallery-btn');
+  galleryBtn.addEventListener('click', () => {
+    window.location.replace('#gallery');
+  });
+
   return containerDiv;
 }
