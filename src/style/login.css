@@ -32,8 +32,7 @@
   border: 1px solid red;
 }
 
-.form .button input,
-.modal .modal-btn {
+.form .button input {
   border: none;
   background-color: #4070f4;
   color: white;
@@ -46,37 +45,4 @@
 
 .button input:hover {
   background-color: #265df2;
-}
-
-/* Confirm exit popup */
-.modal {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #333;
-  display: flex;
-  /*justify-content: center;
-  align-items: center; */
-  opacity: 0;
-  /* pointer-events: none; */
-}
-
-.modal-show {
-  opacity: 1;
-  /* pointer-events: unset; */
-}
-
-.modal-container {
-  width: 30%;
-  transform: translate(-50%, -50%);
-  margin: auto;
-  border-radius: 8px;
-  padding: 1rem 1.5rem;
-  background-color: white;
-  display: grid;
-  gap: 5em;
-  place-items: center;
-  grid-auto-columns: 25%;
 }

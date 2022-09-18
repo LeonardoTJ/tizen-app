@@ -23,7 +23,7 @@ function handleKeys(event) {
       break;
     case keys.ENTER_BUTTON:
       console.log(`[key] ${key} - enter`);
-      event.target.click();
+      // event.target.click();
       break;
     default:
       console.log(`[key] ${key} - not handled`);

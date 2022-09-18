@@ -1,11 +1,10 @@
-import { pages } from '../controllers/index';
+import { pages } from '../controllers/index.js';
 
 const container = document.querySelector('.container');
 
 const router = async (route) => {
   route = route.replace('#', '');
   container.innerHTML = '';
-
 
   switch (route) {
     case '':

@@ -1,38 +1,19 @@
-// import { container } from 'webpack';
 import loginView from '../../views/login.html';
 import nav from '../nav.js';
+import { modal } from './exitModal.controller';
 import '../../style/login.css';
 
 export default () => {
+  nav.reset();  // reset components navigation
   const containerDiv = document.createElement('div');
   containerDiv.classList = 'forms';
   containerDiv.innerHTML = loginView;
+  containerDiv.appendChild(modal('main'));
 
   // input fields
   const form = containerDiv.querySelector('#login-form');
   const emailField = containerDiv.querySelector('#email-field');
   const passwordField = containerDiv.querySelector('#password-field');
-
-  // exit modal
-  const modalExitBtn = containerDiv.querySelector('.modal_exit');
-  const modalCancelBtn = containerDiv.querySelector('.modal_cancel');
-  let exitModalActive = false;
-
-  function toggleModal() {
-    const modal = document.querySelector('.modal');
-    modal.classList.toggle('modal-show');
-    if (!exitModalActive) {
-      nav.disableSection('main');
-      nav.enableSection('modal');
-      nav.focus('modal');
-      exitModalActive = true;
-    } else {
-      nav.enableSection('main');
-      nav.disableSection('modal');
-      nav.focus('main');
-      exitModalActive = false;
-    }
-  }
 
   // this would be backend functionality
   function isValidEmail(email) {
@@ -74,15 +55,6 @@ export default () => {
     }
   }
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    validateCredentials();
-  });
-
-  modalExitBtn.addEventListener('click', nav.exitApp);
-  modalCancelBtn.addEventListener('click', toggleModal);
-
-  nav.reset(); // reset components navigation
 
   // make login elements focusable
   nav.registerSection('main', {
@@ -90,25 +62,23 @@ export default () => {
     // defaultElement: '#email-field',
     rememberSource: true
   });
-  // make exit modal elements focusable
-  nav.registerSection('modal', {
-    selector: '.modal input',
-    enterTo: 'default-element',
-    defaultElement: '.modal-exit',
-    rememberSource: true
+  nav.makeFocusable('main');
+  nav.focus('main');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    validateCredentials();
   });
 
-  nav.registerKeyHandler((event) => {
-    const key = event.keyCode;
+  // nav.registerKeyHandler((event) => {
+  //   const key = event.keyCode;
 
-    switch (key) {
-      case nav.keys.RETURN_BUTTON:
-        toggleModal();
-        break;
-    }
-  });
-
-  nav.makeFocusable();
+  //   switch (key) {
+  //     case nav.keys.RETURN_BUTTON:
+  //       toggleModal();
+  //       break;
+  //   }
+  // });
 
   return containerDiv;
 };

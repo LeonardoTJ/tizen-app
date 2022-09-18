@@ -1,21 +1,22 @@
 import dashboardView from '../../views/dashboard.html';
 import nav from '../nav.js';
+import { modal } from './exitModal.controller.js';
 import '../../style/dashboard.css';
 
 export default () => {
+  nav.reset(); // reset components navigation
   const containerDiv = document.createElement('div');
   containerDiv.innerHTML = dashboardView;
-
-  nav.reset(); // reset components navigation
+  containerDiv.appendChild(modal('menu'));
 
   // make login elements focusable
   nav.registerSection('menu', {
-    selector: '.menu .menu-item',
+    selector: '.menu input',
     // defaultElement: '#email-field',
     rememberSource: true
   });
-
-  nav.makeFocusable();
+  nav.makeFocusable('menu');
+  nav.focus('menu');
 
   const playerBtn = containerDiv.querySelector('#player-btn');
   playerBtn.addEventListener('click', () => {
