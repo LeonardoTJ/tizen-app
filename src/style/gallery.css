@@ -1,0 +1,81 @@
+.gallery {
+  border: none;
+  text-decoration: none;
+  outline: none;
+  height: 100vh;
+}
+
+.gallery-grid {
+  background-color: #333;
+  padding: 20px;
+  columns: 3 350px;
+  column-gap: 15px;
+}
+
+.gallery-grid input {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.image-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  background-color: #333;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+}
+
+.image-popup img {
+  border: 10px solid white;
+  background-color: white;
+}
+
+.controls-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: fit-content;
+  margin: 25px;
+  color: white;
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+  background-color: royalblue;
+  border-radius: 10px;
+}
+
+.image-popup.active,
+.controls-container.active {
+  opacity: 1;
+}
+
+.controls-container .controls {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: start;
+}
+
+.controls-container .controls button {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 15px;
+  margin: 0 5px;
+  height: 80px;
+  width: 80px;
+  font-size: 3rem;
+}
+
+input:focus {
+  transform: scale(0.95);
+}

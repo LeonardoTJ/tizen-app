@@ -15,6 +15,8 @@ const router = async (route) => {
       return container.appendChild(pages.dashboard());
     case 'player':
       return container.appendChild(pages.player());
+    case 'gallery':
+      return container.appendChild(pages.gallery());
     default:
       return container.appendChild(pages.notFound());
   }
