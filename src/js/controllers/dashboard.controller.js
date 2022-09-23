@@ -12,7 +12,7 @@ export default () => {
   // make login elements focusable
   nav.registerSection('menu', {
     selector: '.menu input',
-    // defaultElement: '#email-field',
+    defaultElement: '#player-btn',
     rememberSource: true
   });
   nav.makeFocusable('menu');

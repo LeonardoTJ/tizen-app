@@ -1,0 +1,147 @@
+.frame-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  background-color: black;
+}
+
+.player {
+  width: 100%;
+}
+
+.loading-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(168, 168, 168);
+  border-radius: 35px;
+  width: 300px;
+  height: 300px;
+  opacity: 0.9;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
+.loading-icon::before {
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  transform: translate3d(-50%, -50%, 0);
+  width: 10em;
+  height: 10em;
+  border: solid 15px gray;
+  border-bottom-color: white;
+  animation: 1.5s linear infinite spinner;
+  animation-play-state: inherit;
+  will-change: transform;
+  opacity: 1;
+}
+
+.controls-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 25px;
+  color: white;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+  background-color: royalblue;
+  border-radius: 10px;
+}
+
+.frame-container.active .controls-container,
+.frame-container.seeking .controls-container,
+.frame-container.paused .controls-container {
+  opacity: 1;
+}
+
+.controls-container .controls {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: start;
+}
+
+.controls-container .controls .ui-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0px;
+  margin: 0 5px;
+  height: 80px;
+  width: 80px;
+  font-size: 3rem;
+}
+
+.frame-container.paused .pause-icon {
+  display: none;
+}
+
+.frame-container:not(.paused) .play-icon {
+  display: none;
+}
+
+.duration-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 3rem;
+  margin: 0 150px;
+}
+
+.controls .progress-bar-container {
+  width: 85vh;
+  display: flex;
+  margin: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls .progress-bar-container input {
+  z-index: 1500;
+}
+
+input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 95%;
+  height: 15px;
+  background: white;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  height: 60px;
+  width: 60px;
+  border-radius: 40px;
+  border: 2 solid white;
+  background: #333;
+  -webkit-appearance: none;
+  margin-top: -23px;
+  z-index: 1000;
+}
+
+.frame-container.seeking .progress-bar-container {
+  outline: 7px solid yellow;
+  border-radius: 10px;
+}

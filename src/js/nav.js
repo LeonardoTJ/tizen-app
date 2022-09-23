@@ -5,6 +5,10 @@ const keys = {
   UP_ARROW_BUTTON: 38,
   RIGHT_ARROW_BUTTON: 39,
   DOWN_ARROW_BUTTON: 40,
+  PLAY_BUTTON: 415,
+  PAUSE_BUTTON: 19,
+  PLAY_PAUSE_BUTTON: 10252,
+  STOP_BUTTON: 413,
 };
 let currentKeyHandler;
 
@@ -13,20 +17,20 @@ function handleKeys(event) {
 
   switch (key) {
     case keys.UP_ARROW_BUTTON:
-      console.log(`[key] ${key} - up`);
+      console.log(`[nav] ${key} - up`);
       break;
     case keys.DOWN_ARROW_BUTTON:
-      console.log(`[key] ${key} - down`);
+      console.log(`[nav] ${key} - down`);
       break;
     case keys.RETURN_BUTTON:
-      console.log(`[key] ${key} - return`);
+      console.log(`[nav] ${key} - return`);
       break;
     case keys.ENTER_BUTTON:
-      console.log(`[key] ${key} - enter`);
+      console.log(`[nav] ${key} - enter`);
       // event.target.click();
       break;
     default:
-      console.log(`[key] ${key} - not handled`);
+      console.log(`[nav] ${key} - not handled`);
   }
 }
 
@@ -41,8 +45,6 @@ function reset() {
 
 function registerSection(id, config) {
   SpatialNavigation.add(id, config);
-  // SpatialNavigation.makeFocusable();
-  // SpatialNavigation.focus();
 }
 
 function registerKeyHandler(componentKeyHandler) {

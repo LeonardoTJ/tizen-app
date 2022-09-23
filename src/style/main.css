@@ -10,9 +10,6 @@ body {
 }
 
 .container {
-  /* max-width: 400px; */
-  /* width: 100vh; */
-  /* position: relative; */
   height: 100vh;
   display: flex;
   align-items: center;
