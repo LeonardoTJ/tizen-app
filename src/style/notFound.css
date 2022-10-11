@@ -1,0 +1,22 @@
+/* .container {
+  height: 100vh;
+  background-color: #333;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
+
+.btn {
+  border: none;
+  background-color: #4070f4;
+  color: white;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  font-size: 17px;
+  margin: 15px;
+  padding: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}

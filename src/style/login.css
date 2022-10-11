@@ -1,31 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-
-body {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #333;
-}
-
-.container {
-  /* position: relative; */
-  max-width: 400px;
-  width: 100%;
+.form {
+  width: 800px;
+  padding: 30px;
   background-color: white;
 }
 
-.container .form {
-  padding: 30px;
-}
-
-.container .form .title {
-  /* position: relative; */
+.form .title {
   font-size: 30px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -33,13 +12,11 @@ body {
 
 .form .input-field {
   margin: 20px auto;
-  /* position: relative; */
   height: 30px;
   width: 100%;
 }
 
 .input-field input {
-  /* position: absolute; */
   height: 100%;
   width: 100%;
   padding: 0 15px;
@@ -68,9 +45,4 @@ body {
 
 .button input:hover {
   background-color: #265df2;
-}
-
-/* Style for focused elements */
-:focus {
-  outline: 2px solid blue;
 }

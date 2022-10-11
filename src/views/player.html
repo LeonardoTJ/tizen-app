@@ -1,0 +1,44 @@
+<div class="loading-icon-container">
+  <div class="loading-icon"></div>
+</div>
+<div class="controls-container">
+  <div class="controls">
+    <button class="ui-btn play-pause-btn">
+      <svg class="play-icon" viewBox="0 0 45 45">
+        <path fill="currentColor" d="M16 37.85v-28l22 14Z" />
+      </svg>
+      <svg class="pause-icon" viewBox="0 0 45 45">
+        <path fill="currentColor" d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" />
+      </svg>
+    </button>
+    <button class="ui-btn rw-btn">
+      <svg class="rw-icon" viewBox="0 0 45 45">
+        <path
+          fill="currentColor"
+          d="M42.7 36 25.4 24l17.3-12Zm-20.1 0L5.3 24l17.3-12Z"
+        />
+      </svg>
+    </button>
+    <button class="ui-btn ff-btn">
+      <svg class="ff-icon" viewBox="0 0 45 45">
+        <path fill="currentColor" d="M5.2 36V12l17.3 12Zm20.35 0V12l17.3 12Z" />
+      </svg>
+    </button>
+    <div class="duration-container">
+      <div class="current-time">0:00</div>
+      /
+      <div class="total-time"></div>
+    </div>
+    <button class="progress-bar-container">
+      <input
+        type="range"
+        class="progress-bar"
+        min="0"
+        max="1"
+        step="5"
+        value="0"
+      />
+    </button>
+  </div>
+</div>
+<object class="player" type="application/avplayer"></object>
