@@ -39,7 +39,7 @@
   background-color: white;
 }
 
-.controls-container {
+.buttons-container {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -54,18 +54,18 @@
 }
 
 .image-popup.active,
-.controls-container.active {
+.buttons-container.active {
   opacity: 1;
 }
 
-.controls-container .controls {
+.buttons-container .buttons {
   display: flex;
   gap: 3rem;
   align-items: center;
   justify-content: start;
 }
 
-.controls-container .controls button {
+.buttons-container .buttons button {
   background: none;
   border: none;
   color: inherit;

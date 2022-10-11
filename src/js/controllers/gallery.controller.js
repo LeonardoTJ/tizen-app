@@ -72,7 +72,7 @@ export default () => {
 
   nav.registerKeyHandler(handleGalleryKeys);
 
-  const controls = containerDiv.querySelector('.controls-container');
+  const controls = containerDiv.querySelector('.buttons-container');
   const rotateLeftBtn = containerDiv.querySelector('.rotate-left-btn');
   const fullscreenBtn = containerDiv.querySelector('.fullscreen-btn');
   const rotateRightBtn = containerDiv.querySelector('.rotate-right-btn');
@@ -120,7 +120,7 @@ export default () => {
     selector: '.gallery-grid input',
   });
   nav.registerSection('controls', {
-    selector: '.controls-container button',
+    selector: '.buttons-container button',
   });
 
   nav.disableSection('controls');
