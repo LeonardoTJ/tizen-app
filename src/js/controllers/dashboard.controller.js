@@ -6,6 +6,7 @@ import '../../style/dashboard.css';
 export default () => {
   nav.reset(); // reset components navigation
   const containerDiv = document.createElement('div');
+  containerDiv.classList.add('dashboard');
   containerDiv.innerHTML = dashboardView;
   containerDiv.appendChild(modal('menu'));
 

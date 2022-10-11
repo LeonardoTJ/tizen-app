@@ -17,7 +17,7 @@ function modal(section) {
 
   const modalCancelBtn = modalDiv.querySelector('.modal_cancel');
   modalCancelBtn.addEventListener('click', () => {
-    toggleModal(currentSection);
+    toggleModal();
   });
 
   // make exit modal elements focusable
