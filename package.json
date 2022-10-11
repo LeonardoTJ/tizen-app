@@ -1,0 +1,39 @@
+{
+  "name": "tizen-app",
+  "version": "0.2.1",
+  "description": "A Smart TV web application demo built for the Tizen platform.",
+  "scripts": {
+    "start-wits": "concurrently --kill-others \"webpack --mode production\" \"npm run wits-start\"",
+    "webpack": "webpack --watch",
+    "wits-init": "wits --init",
+    "wits-start": "wits --start --verbose",
+    "package": "tizen package -t wgt -- ./dist",
+    "install": "tizen install -n TizenApp.wgt -s 192.168.8.100:26101 -- ./dist",
+    "uninstall": "tizen uninstall -p QlyrQhAm4H.TizenApp -s 192.168.8.100:26101 -- ./dist",
+    "build": "webpack --mode production && npm run package && npm run install",
+    "start": "npm run build && tizen run -p QlyrQhAm4H.TizenApp -s 192.168.8.100:26101"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonardoTJ/tizen-app.git"
+  },
+  "author": "Leonardo Melendez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeonardoTJ/tizen-app/issues"
+  },
+  "homepage": "https://github.com/LeonardoTJ/tizen-app#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
+    "babel-loader": "^8.2.5",
+    "concurrently": "^7.3.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
+    "html-loader": "^4.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
