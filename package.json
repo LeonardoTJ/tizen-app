@@ -7,10 +7,10 @@
     "webpack": "webpack --watch",
     "wits-init": "wits --init",
     "wits-start": "wits --start --verbose",
-    "package": "tizen package -t wgt -- ./dist",
-    "install": "tizen install -n TizenApp.wgt -s 192.168.8.100:26101 -- ./dist",
-    "uninstall": "tizen uninstall -p QlyrQhAm4H.TizenApp -s 192.168.8.100:26101 -- ./dist",
-    "build": "webpack --mode production && npm run package && npm run install",
+    "tizen-package": "tizen package -t wgt -- ./dist",
+    "tizen-install": "tizen install -n TizenApp.wgt -s 192.168.8.101:26101 -- ./dist",
+    "tizen-uninstall": "tizen uninstall -p QlyrQhAm4H.TizenApp -s 192.168.8.101:26101 -- ./dist",
+    "build": "webpack --mode production && npm run tizen-package && npm run tizen-install",
     "start": "npm run build && tizen run -p QlyrQhAm4H.TizenApp -s 192.168.8.100:26101"
   },
   "repository": {
