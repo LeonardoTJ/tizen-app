@@ -2,6 +2,13 @@
 
 A Smart TV web application demo built for the Tizen platform.
 
+## Todo
+
+- Logout
+- TTS on headings
+- OOP
+- AVplay buffering
+
 ## Resources
 
 - [JavaScript SpatialNavigation](https://github.com/luke-chang/js-spatial-navigation) by Luke Chang
