@@ -13,6 +13,9 @@ const formatter = Intl.NumberFormat(undefined, {
 // timeout ID
 let timeout = '';
 
+// playtime
+let currentPlaytime;
+
 export default () => {
   const containerDiv = document.createElement('div');
   containerDiv.classList.add('frame-container', 'active');
@@ -29,6 +32,7 @@ export default () => {
   const progressBarContainer = containerDiv.querySelector('.progress-bar-container');
   const progressBar = containerDiv.querySelector('.progress-bar');
   const loadingIcon = containerDiv.querySelector('.loading-icon-container');
+  const voiceTag = document.querySelector('#tts-tag');
 
   // open a media file
   webapis.avplay.open(url);
@@ -60,10 +64,15 @@ export default () => {
 
     },
     // Current playback time in the PLAYING state, in milliseconds
-    oncurrentplaytime: function (currentTime) {
-      currentTimeElement.textContent = formatTime(currentTime);
-      console.log(`Current time millis: ${currentTime} |  ${currentTimeElement.textContent}`);
-      progressBar.value = Math.floor(currentTime / 1000);
+    oncurrentplaytime: function (currentMillis) {
+      currentPlaytime = formatTime(currentMillis);
+      if (currentPlaytime.hours) {
+        currentTimeElement.textContent = `${currentPlaytime.hours}:${currentPlaytime.minutes}:${currentPlaytime.seconds}`;
+      } else {
+        currentTimeElement.textContent = `${currentPlaytime.minutes}:${currentPlaytime.seconds}`;
+      }
+      console.log(`Current time millis: ${currentMillis} |  ${currentTimeElement.textContent}`);
+      progressBar.value = Math.floor(currentMillis / 1000);
     },
     // An error has ocurred during media playback
     onerror: function (eventType) {
@@ -182,10 +191,12 @@ export default () => {
   function handleProgressBarKey(e) {
     switch (e.keyCode) {
       case nav.keys.LEFT_ARROW_BUTTON:  // LEFT button
-        webapis.avplay.jumpBackward(5000, seekSuccessCallback, seekErrorCallback);
+        console.log('Seek backward');
+        webapis.avplay.jumpBackward(5000, seekBackwardSuccessCallback, seekErrorCallback);
         break;
       case nav.keys.RIGHT_ARROW_BUTTON:  // RIGHT button
-        webapis.avplay.jumpForward(5000, seekSuccessCallback, seekErrorCallback);
+        console.log('Seek forward');
+        webapis.avplay.jumpForward(5000, seekForwardSuccessCallback, seekErrorCallback);
         break;
       case nav.keys.RETURN_BUTTON: // RETURN button
         toggleSeekMode();
@@ -234,17 +245,25 @@ export default () => {
 
     if (hours === 0) {
       seconds = formatter.format(seconds);
-      return `${minutes}:${seconds}`;
+      return { minutes, seconds };
     } else {
       minutes = formatter.format(minutes);
       seconds = formatter.format(seconds);
-      return `${hours}:${minutes}:${seconds}`;
+      // return `${hours}:${minutes}:${seconds}`;
+      return { hours, minutes, seconds };
     }
   }
 
   //Media seek during playback
-  function seekSuccessCallback() {
-    console.log('Media seek successful');
+  function seekForwardSuccessCallback() {
+    console.log('Media forward seek successful');
+    voiceTag.innerHTML = `Jump forward 5 seconds`;
+    loadingIcon.style.display = 'none';
+  }
+
+  function seekBackwardSuccessCallback() {
+    console.log('Media backwardseek successful');
+    voiceTag.innerHTML = `Jump backward 5 seconds`;
     loadingIcon.style.display = 'none';
   }
 
@@ -255,12 +274,12 @@ export default () => {
 
   playPauseBtn.addEventListener('click', togglePlay);
   ffBtn.addEventListener('click', () => {
-    webapis.avplay.jumpForward(5000, seekSuccessCallback, seekErrorCallback);
-    loadingIcon.style.display = 'flex';
+    console.log('Forward Button');
+    webapis.avplay.jumpForward(5000, seekForwardSuccessCallback, seekErrorCallback);
   });
   rwBtn.addEventListener('click', () => {
-    webapis.avplay.jumpBackward(5000, seekSuccessCallback, seekErrorCallback);
-    loadingIcon.style.display = 'flex';
+    console.log('Backward Button');
+    webapis.avplay.jumpBackward(5000, seekBackwardSuccessCallback, seekErrorCallback);
   });
 
   webapis.avplay.setTimeoutForBuffering(3);
@@ -270,7 +289,12 @@ export default () => {
     console.log('The media has finished preparing');
     console.log(webapis.avplay.getCurrentStreamInfo());
     timeout = handleUIFade();
-    totalTimeElement.textContent = formatTime(webapis.avplay.getDuration());
+    let { hours, minutes, seconds } = formatTime(webapis.avplay.getDuration());
+    if (hours) {
+      totalTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
+    } else {
+      totalTimeElement.textContent = `${minutes}:${seconds}`;
+    }
     console.log(`Total time millis: ${webapis.avplay.getDuration()} | Total time string: ${totalTimeElement.textContent}`);
     progressBar.max = Math.floor(webapis.avplay.getDuration() / 1000);
   }

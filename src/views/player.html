@@ -3,7 +3,7 @@
 </div>
 <div class="controls-container">
   <div class="controls">
-    <button class="ui-btn play-pause-btn">
+    <button class="ui-btn play-pause-btn" role="button" aria-label="Play Pause">
       <svg class="play-icon" viewBox="0 0 45 45">
         <path fill="currentColor" d="M16 37.85v-28l22 14Z" />
       </svg>
@@ -11,7 +11,7 @@
         <path fill="currentColor" d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" />
       </svg>
     </button>
-    <button class="ui-btn rw-btn">
+    <button class="ui-btn rw-btn" role="button" aria-label="Rewind">
       <svg class="rw-icon" viewBox="0 0 45 45">
         <path
           fill="currentColor"
@@ -19,7 +19,7 @@
         />
       </svg>
     </button>
-    <button class="ui-btn ff-btn">
+    <button class="ui-btn ff-btn" role="button" aria-label="Forward">
       <svg class="ff-icon" viewBox="0 0 45 45">
         <path fill="currentColor" d="M5.2 36V12l17.3 12Zm20.35 0V12l17.3 12Z" />
       </svg>
@@ -29,7 +29,11 @@
       /
       <div class="total-time"></div>
     </div>
-    <button class="progress-bar-container">
+    <button
+      class="progress-bar-container"
+      role="progressbar"
+      aria-label="Progress bar"
+    >
       <input
         type="range"
         class="progress-bar"

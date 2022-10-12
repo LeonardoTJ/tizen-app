@@ -1,5 +1,7 @@
 <div class="form login">
-  <span id="title" class="title" role="heading">Login</span>
+  <span id="title" class="title" role="heading" aria-label="Login" tabindex="-1"
+    >Login</span
+  >
   <form id="login-form" action="#dashboard">
     <div class="input-field">
       <input
@@ -9,8 +11,8 @@
         placeholder="Enter your email"
         role="textbox"
         aria-label="Email field"
-        aria-labelledby="title"
         aria-required="true"
+        autofocus
         required
       />
       <span class="error-message" aria-live="assertive"></span>
@@ -23,20 +25,13 @@
         placeholder="Enter your password"
         role="textbox"
         aria-label="Password field"
-        aria-labelledby="title"
         aria-required="true"
         required
       />
       <span class="error-message" aria-live="assertive"></span>
     </div>
     <div class="input-field button">
-      <input
-        class="main-btn"
-        type="submit"
-        value="Login now"
-        role="button"
-        aria-labelledby="title"
-      />
+      <input class="main-btn" type="submit" value="Login now" role="button" />
     </div>
   </form>
 </div>

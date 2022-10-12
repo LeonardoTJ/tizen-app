@@ -62,12 +62,14 @@ export default () => {
 
   function fillGallery() {
     let images = require.context('../../assets/', false, /\.(png|jpg|jpeg|gif)$/);
-    images = images.keys().map(images).forEach(image => {
+    images.keys().map(images).forEach((image, index) => {
       const imageInput = document.createElement('input');
       imageInput.setAttribute('type', 'image');
       imageInput.setAttribute('src', image);
+      imageInput.setAttribute('role', 'button');
+      imageInput.setAttribute('aria-label', `Image ${index + 1} thumbnail`);
       galleryGrid.appendChild(imageInput);
-    })
+    });
   }
 
   nav.registerKeyHandler(handleGalleryKeys);
