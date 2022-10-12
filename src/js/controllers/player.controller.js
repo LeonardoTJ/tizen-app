@@ -3,7 +3,8 @@ import nav from '../nav.js';
 import '../../style/player.css';
 
 // stream url
-const url = 'https://files.catbox.moe/9tz8kv.mp4';  // dan dan
+// const url = 'https://files.catbox.moe/9tz8kv.mp4';  // dan dan
+const url = 'https://rr1---sn-a5msenll.googlevideo.com/videoplayback?expire=1665633888&ei=ADpHY8rlE4aPkwbe_aaQAw&ip=200.68.171.81&id=o-AE1IvSbGF9boVF9zqHjb8dKn_RAFt8kFwVZ0mFljly1X&itag=22&source=youtube&requiressl=yes&spc=yR2vp-xscOTWVugCh5mOce8WzvszffA&vprv=1&svpuc=1&mime=video%2Fmp4&cnr=14&ratebypass=yes&dur=193.491&lmt=1509242754772586&fexp=24001373,24007246&c=ANDROID&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgNLBxLAbObK9C3RYKgKABnM9HbRkfOiMMfi0My_t9w4ACIQDgjgIPkqTVlJqMA9Z7arrxXC0eiK32X8qnmIUHOjc5Iw%3D%3D&redirect_counter=1&cm2rm=sn-0opoxu-upw67l&req_id=2080db21e09ca3ee&cms_redirect=yes&cmsv=e&mh=cp&mm=29&mn=sn-a5msenll&ms=rdu&mt=1665612068&mv=m&mvi=1&pl=24&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIgTHMrTQxlNQXaeXCW5JcH2XvV_6-Yy8Hzup2hhwlCI-QCIQDfSeK6zaeGh_17Lb3p6DtIO_RImPALDsPq4SvPjAbWRA%3D%3D';  // gt4
 
 // video duration formatter
 const formatter = Intl.NumberFormat(undefined, {
