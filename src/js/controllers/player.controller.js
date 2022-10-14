@@ -33,6 +33,8 @@ export default () => {
   const progressBarContainer = containerDiv.querySelector('.progress-bar-container');
   const progressBar = containerDiv.querySelector('.progress-bar');
   const loadingIcon = containerDiv.querySelector('.loading-icon-container');
+  // loadingIcon.style.display = 'none';
+  const errorIcon = containerDiv.querySelector('.error-icon-container');
   const voiceTag = document.querySelector('#tts-tag');
 
   // open a media file
@@ -78,6 +80,8 @@ export default () => {
     // An error has ocurred during media playback
     onerror: function (eventType) {
       console.log("event type error : " + eventType);
+      loadingIcon.style.display = 'none';
+      errorIcon.style.display = 'flex';
     },
     // Some other event is received by the player
     onevent: function (eventType, eventData) {
@@ -113,6 +117,8 @@ export default () => {
 
   function restoreErrorCallback() {
     console.log('Failed to restore state');
+    loadingIcon.style.display = 'none';
+    errorIcon.style.display = 'flex';
   }
 
   document.addEventListener('visibilitychange', function () {
@@ -271,6 +277,7 @@ export default () => {
   function seekErrorCallback() {
     console.log('Media seek failed');
     loadingIcon.style.display = 'none';
+    errorIcon.style.display = 'flex';
   }
 
   playPauseBtn.addEventListener('click', togglePlay);
@@ -301,6 +308,8 @@ export default () => {
   }
   const prepareErrorCallback = function () {
     console.log('The media has failed to prepare');
+    loadingIcon.style.display = 'none';
+    errorIcon.style.display = 'flex';
   }
 
   // when AVPlay starts preparing, onbufferingstart event handler is invoked, and instance enters READY state

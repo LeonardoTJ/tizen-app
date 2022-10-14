@@ -13,7 +13,7 @@
 }
 
 .loading-icon-container {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   position: absolute;
@@ -51,6 +51,21 @@
   animation-play-state: inherit;
   will-change: transform;
   opacity: 1;
+}
+
+.error-icon-container {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(168, 168, 168);
+  border-radius: 35px;
+  width: 300px;
+  height: 300px;
+  opacity: 0.9;
 }
 
 .controls-container {
