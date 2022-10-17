@@ -5,7 +5,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: {
     main: path.resolve(__dirname, 'src/js/main.js'),
-    // nav: path.resolve(__dirname, 'src/js/nav.js'),
+    sn: path.resolve(__dirname, 'src/js/spatial_navigation.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
